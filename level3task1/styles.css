@@ -1,0 +1,165 @@
+/* General Styles */
+:root {
+    --primary-color: #232C33; /* Charcoal */
+    --secondary-color: #F4F4F4; /* Light Gray */
+    --accent-color: #00ADB5; /* Turquoise Blue */
+    --text-color: #333; /* Dark Text */
+    --modal-bg: rgba(0, 0, 0, 0.8); /* Modal Background */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Gallery Styles */
+.gallery {
+    padding: 20px;
+}
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.thumbnail {
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.thumbnail img {
+    width: 150px; /* Set a uniform width for thumbnails */
+    height: 100px; /* Set a uniform height for thumbnails */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    border-radius: 8px; /* Rounded corners for modal image */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    outline: none !important;
+    transition: color 0.3s;
+}
+
+
+.slideshow-container h2 {
+    text-align: left; /* Fully align the heading to the left */
+    margin: 0; /* Remove margin to ensure it aligns perfectly */
+    padding: 10px 0; /* Keep padding for spacing */
+}
+
+/* Updated Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    overflow: hidden; /* Hide other slides */
+}
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 45%; /* 16:9 aspect ratio (adjust as needed) */
+}
+
+.slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* or 'cover' depending on your preference */
+}
+
+/* Animation for automatic slideshow */
+@keyframes slide {
+    0%, 20% { transform: translateX(0%); } /* Show slide 1 for 20% of animation */
+    25%, 45% { transform: translateX(-100%); } /* Slide 2 */
+    50%, 70% { transform: translateX(-200%); } /* Slide 3 */
+    75%, 95% { transform: translateX(-300%); } /* Slide 4 */
+    100% { transform: translateX(-400%); } /* Reset position */
+}
+
+.slides {
+    animation: slide 20s infinite; /* 4 slides × 5 seconds each = 20s total */
+    transition: transform 1s ease-in-out; /* Smooth transition between slides */
+}
+
+/* Hide radio inputs since we're doing auto-slide */
+input[name="slides"] {
+    display: none;
+}
+
+/* Remove navigation dots styles */
+.navigation {
+    display: none; /* Hide navigation dots */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slideshow {
+        padding-bottom: 75%; /* Adjust aspect ratio for mobile */
+    }
+}

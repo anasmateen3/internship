@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Responsive Image Gallery and Slideshow</title>
+</head>
+<body>
+    <header>
+        <h1>Image Gallery</h1>
+    </header>
+
+    <main>
+        <!-- Thumbnail Gallery -->
+        <section class="gallery">
+            <h2>Thumbnail Gallery</h2>
+            <div class="thumbnails">
+                <figure class="thumbnail" onclick="openModal('image1.jpg')">
+                    <img src="image1.jpg" alt="Image 1">
+                    <figcaption>Image 1</figcaption>
+                </figure>
+                <figure class="thumbnail" onclick="openModal('image2.jpg')">
+                    <img src="image2.jpg" alt="Image 2">
+                    <figcaption>Image 2</figcaption>
+                </figure>
+                <figure class="thumbnail" onclick="openModal('image3.jpg')">
+                    <img src="image3.jpg" alt="Image 3">
+                    <figcaption>Image 3</figcaption>
+                </figure>
+                <figure class="thumbnail" onclick="openModal('image4.jpg')">
+                    <img src="image4.jpg" alt="Image 4">
+                    <figcaption>Image 4</figcaption>
+                </figure>
+            </div>
+
+            <!-- Modal for Full-View Image -->
+            <div id="modal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modal-img" alt="Full View">
+            </div>
+        </section>
+
+        <!-- Simple Slideshow -->
+        <section class="slideshow-container">
+            <h2>Image Slideshow</h2>
+            <div class="slideshow">
+                <input type="radio" name="slides" id="slide1" checked>
+                <input type="radio" name="slides" id="slide2">
+                <input type="radio" name="slides" id="slide3">
+                <input type="radio" name="slides" id="slide4">
+
+                <div class="slides">
+                    <div class="slide">
+                        <img src="image1.jpg" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="image2.jpg" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img src="image3.jpg" alt="Slide 3">
+                    </div>
+                    <div class="slide">
+                        <img src="image4.jpg" alt="Slide 4">
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <label for="slide1" class="dot"></label>
+                    <label for="slide2" class="dot"></label>
+                    <label for="slide3" class="dot"></label>
+                    <label for="slide4" class="dot"></label>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function openModal(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
